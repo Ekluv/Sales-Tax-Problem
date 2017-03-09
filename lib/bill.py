@@ -6,7 +6,7 @@ class Bill(object):
         if isinstance(products, list) and all(isinstance(obj, Product) for obj in products):
             self._products = products
         else:
-            raise ValueError('ekluv')
+            raise ValueError('products must be instance of %s' % Product.__name__)
 
     @property
     def products(self):
@@ -16,7 +16,7 @@ class Bill(object):
         if isinstance(product, Product):
             self._products.append(product)
         else:
-            raise ValueError('')
+            raise ValueError('product must be instance of %s' % Product.__name__')
 
     def remove_product(self, product):
         self._products.remove(product)
